@@ -1,18 +1,14 @@
 import { iUser } from "../../interfaces/user.interface";
 import prisma from "../../database/connect.database";
-import { AppError } from "../../errors/AppError.errors";
+import { iSession } from "../../interfaces/session.interface";
 
-export const findUser = async(userData: iUser) => {
+export const findUser = async(userData: iUser | iSession) => {
 
-    const findUser = await prisma.user.findFirst({
+    const findUser = await prisma.user.findUnique({
         where:{
             email: userData.email
         }
     })
 
-    if(findUser){
-      throw new AppError("Email already registered", 409)
-    }
-
-    return
+    return findUser
 }
