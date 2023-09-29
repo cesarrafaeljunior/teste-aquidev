@@ -13,6 +13,33 @@ datasource db {
 
 model User {
   id      Int      @id @default(autoincrement())
-  name    String?  @db.VarChar(255)
-  email   String   @unique @db.VarChar(255)
+  name    String
+  email   String   @unique 
+  password String
+  createdAt  DateTime   @default(now())
+
+  @@map("users")
+}
+
+model Product {
+  id      Int      @id @default(autoincrement())
+  name String
+  description String
+  price Int
+  Stock Int
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+  category Category @relation(fields: [categoryId],references: [id])
+  categoryId Int
+
+  @@map("products")
+}
+
+
+model Category {
+  id      Int      @id @default(autoincrement())
+  products Product[]
+  name String
+
+  @@map("category")
 }
