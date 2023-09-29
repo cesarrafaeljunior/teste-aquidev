@@ -1,7 +1,7 @@
 import prisma from "../../database/connect.database"
 import { AppError } from "../../errors/AppError.errors"
 import { iUser } from "../../interfaces/user.interface"
-import { returnUserSchemaWithoutPassword } from "../../schemas/user/user.schemas"
+import { returnUserSchemaWithoutPassword } from "../../schemas/user.schemas"
 import { findUser } from "../../utils/user/findUserInDb.utils"
 import bcrypt, { hashSync } from "bcryptjs"
 
