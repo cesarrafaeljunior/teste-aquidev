@@ -1,24 +1,11 @@
 import prisma from "../../database/connect.database";
 import { iProduct } from "../../interfaces/product.interface";
+import { findOrCreateCategory } from "../../utils/product/findOrCreateCategory.utils";
 
 export const createProductService = async (productData:iProduct) => {
 
 
-    const category = productData.category
-
-    let findCategory = await prisma.category.findFirst({
-        where:{
-            name: category.name
-        }
-    })
-
-    if(!findCategory){
-        findCategory = await prisma.category.create({
-            data: {
-                name: category.name.toLowerCase()
-            }
-        })
-    }
+    const category = await findOrCreateCategory(productData.category.name.toLowerCase())
     
     const product = await prisma.product.create({
         data:{
@@ -27,7 +14,7 @@ export const createProductService = async (productData:iProduct) => {
             price: productData.price,
             stock: productData.stock,
             category: {
-                connect: {id: findCategory.id}
+                connect: {id: category.id}
             } 
         }
     })
