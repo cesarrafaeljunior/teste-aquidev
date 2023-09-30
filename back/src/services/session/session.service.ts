@@ -6,6 +6,7 @@ import jwt from "jsonwebtoken"
 import "dotenv/config"
 
 export const sessionService = async (sessionData: iSession) => {
+  
   const user = await findUser(sessionData);
 
   if (!user) {

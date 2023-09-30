@@ -1,18 +1,21 @@
 import prisma from "../../database/connect.database"
-import { iProductPartial } from "../../interfaces/product.interface"
+import { iCategory, iProductPartial, iProductResponse } from "../../interfaces/product.interface"
+import { returnProductSchema } from "../../schemas/product.schemas"
 import { findOrCreateCategory } from "../../utils/product/findOrCreateCategory.utils"
+import { findProductId } from "../../utils/product/findProductId.utils"
 
 export const updateProductService = async (productId:number, productData:iProductPartial | any) => {
 
-
+    await findProductId(productId)
+    
     if(productData.category){
 
-        const category = await findOrCreateCategory(productData.category.name.toLowerCase())
+        const category:iCategory = await findOrCreateCategory(productData.category.name.toLowerCase())
 
         productData.category = category
     }
 
-    const updateProduct = await prisma.product.update({
+    const updateProduct:iProductPartial = await prisma.product.update({
         where:{
             id: productId
         },
@@ -26,5 +29,7 @@ export const updateProductService = async (productId:number, productData:iProduc
         }
     })
 
-    return updateProduct
+    const productResponse:iProductResponse =  returnProductSchema.parse(updateProduct)
+
+    return productResponse
 }

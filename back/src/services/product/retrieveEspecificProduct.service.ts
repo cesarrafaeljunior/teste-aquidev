@@ -1,19 +1,12 @@
-import prisma from "../../database/connect.database"
-import { AppError } from "../../errors/AppError.errors"
+import { iProductResponse } from "../../interfaces/product.interface"
+import { returnProductSchema } from "../../schemas/product.schemas"
+import { findProductId } from "../../utils/product/findProductId.utils"
 
-export const retrieveEspecificProductService = async (productId: number) => {
+export const retrieveEspecificProductService = async (productId: number):Promise<iProductResponse> => {
  
-    const product = await prisma.product.findUnique({
-        where:{
-            id: productId,
-        },include:{
-            category: true
-        }
-    })
+    const product:iProductResponse = await findProductId(productId)
 
-    if(!product){
-        throw new AppError("Product not found",404)
-    }
+    const productResponse:iProductResponse = returnProductSchema.parse(product)
 
-    return product
+    return productResponse
 }

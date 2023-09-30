@@ -1,4 +1,5 @@
 import prisma from "../../database/connect.database"
+import { iCategory } from "../../interfaces/product.interface"
 
 export const findOrCreateCategory = async (categoryName:string) => {
     

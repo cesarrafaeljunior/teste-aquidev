@@ -1,13 +1,14 @@
 import prisma from "../../database/connect.database";
-import { iProduct } from "../../interfaces/product.interface";
+import { iCategory, iProduct, iProductResponse } from "../../interfaces/product.interface";
+import { returnProductSchema } from "../../schemas/product.schemas";
 import { findOrCreateCategory } from "../../utils/product/findOrCreateCategory.utils";
 
-export const createProductService = async (productData:iProduct) => {
+export const createProductService = async (productData:iProduct): Promise<iProductResponse> => {
 
 
-    const category = await findOrCreateCategory(productData.category.name.toLowerCase())
+    const category:iCategory = await findOrCreateCategory(productData.category.name.toLowerCase())
     
-    const product = await prisma.product.create({
+    const product:iProductResponse = await prisma.product.create({
         data:{
             name: productData.name,
             description: productData.description,
@@ -16,9 +17,13 @@ export const createProductService = async (productData:iProduct) => {
             category: {
                 connect: {id: category.id}
             } 
+        },include:{
+            category: true
         }
     })
 
-    return product
+    const productResponse:iProductResponse = returnProductSchema.parse(product)
+
+    return productResponse
 
 }
