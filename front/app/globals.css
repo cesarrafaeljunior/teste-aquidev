@@ -16,12 +16,22 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.bg_beer {
+  position: relative;
+  z-index: 2;
+}
+
+.bg_beer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(../public/assets/bg/bg_beer.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; 
+  opacity: 0.4;
+  z-index: -1;
 }
