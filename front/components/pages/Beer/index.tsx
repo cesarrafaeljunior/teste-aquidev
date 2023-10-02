@@ -9,14 +9,14 @@ import nookies from "nookies";
 export const BeerEspecific = ({ id }: any) => {
   const router = useRouter();
   useEffect(() => {
-    function verifyToken() {
+    const verifyToken = () => {
       const token = nookies.get(null).token;
       if (!token) {
         router.push("/");
       }
     }
     verifyToken();
-  }, []);
+  });
 
   const { beers } = useContext(beerContext);
 

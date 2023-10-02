@@ -13,14 +13,14 @@ export const Home = () => {
   const router = useRouter();
 
   useEffect(() => {
-    function verifyToken() {
+    const verifyToken = () =>() {
       const token = nookies.get(null).token;
       if (!token) {
         router.push("/");
       }
     }
     verifyToken();
-  }, []);
+  });
 
   const { beers, page, setPage } = useContext(beerContext);
 

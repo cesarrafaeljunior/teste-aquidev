@@ -26,7 +26,7 @@ export const UserProvider = ({ children }: iChildren) => {
     if (token) {
       localApi.defaults.headers.authorization = `Bearer ${token}`;
       retrieveLoggedUser();
-      router.push("/home")
+      router.push("/home");
     }
   }, []);
 
@@ -35,8 +35,9 @@ export const UserProvider = ({ children }: iChildren) => {
       .post("login", userLogin)
       .then((res) => {
         nookies.set(null, "token", res.data.token);
+        retrieveLoggedUser();
         router.push("/home");
-        setError("")
+        setError("");
       })
       .catch((error) => {
         setError(error.response.data.message);
@@ -50,6 +51,7 @@ export const UserProvider = ({ children }: iChildren) => {
         setUser(res.data.user);
         const { email, password } = userRegister;
         loginUser({ email, password });
+        retrieveLoggedUser();
       })
       .catch((error) => {
         setError(error.response.data.message);
