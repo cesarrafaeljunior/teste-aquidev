@@ -13,30 +13,30 @@ export const Home = () => {
   const router = useRouter();
 
   useEffect(() => {
-    const verifyToken = () =>() {
+    const verifyToken = () => {
       const token = nookies.get(null).token;
       if (!token) {
         router.push("/");
       }
-    }
+    };
     verifyToken();
-  });
+  }, []);
 
   const { beers, page, setPage } = useContext(beerContext);
 
   return (
     <>
       <Header />
-      <figure className="w-full h-[800px]">
+      <figure className="w-full h-[max-content] relative">
         <Image
           src={Bg_Home}
           alt="Background Beers"
           width={1600}
           height={900}
-          className="w-full h-[650px]"
+          className=" w-full  sm:h-[650px] pt-[6rem] lg:object-fill "
         />
       </figure>
-      <main className="container">
+      <main className="container pb-[2rem]">
         <Content data={beers} />
         <PaginationHome page={page} setPage={setPage} />
       </main>

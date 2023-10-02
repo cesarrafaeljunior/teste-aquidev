@@ -28,7 +28,7 @@ export const UserProvider = ({ children }: iChildren) => {
       retrieveLoggedUser();
       router.push("/home");
     }
-  }, []);
+  },[]);
 
   const loginUser = async (userLogin: iUserLogin) => {
     await localApi

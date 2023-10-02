@@ -2,8 +2,9 @@ import Link from "next/link";
 
 export const Content = ({ data }: any) => {
   return (
-    <section className="">
-      <ul className="px-[2rem] mt-[3rem] flex flex-wrap items-center justify-start gap-[3rem]">
+    <section className="mt-[2rem] flex flex-col">
+      <h1 className="self-center py-[1rem] border-b-2 border-amber-400 pb-[0.2rem] mb-[2rem] font-bold">Beers</h1>
+      <ul className="px-[2rem] flex flex-wrap items-center justify-center gap-[3rem]">
         {data?.map((beer: any) => {
           return (
             <Link

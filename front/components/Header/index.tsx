@@ -11,8 +11,8 @@ export const Header = () => {
 
   return (
     <header className="w-full h-[100px] flex items-center justify-between bg-amber-950 shadow-lg fixed z-10">
-      <div className="container flex items-center justify-between">
-        <div className="w-full h-full">
+      <div className="container flex items-center justify-between px-[1rem]">
+        <div className="w-full h-full ">
           <figure className="w-[100px]">
             <Link href={"/home"}>
               <Image

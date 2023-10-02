@@ -16,9 +16,9 @@ export const PaginationHome = ({ page, setPage }: any) => {
   };
 
   return (
-    <section className="w-full h-full flex items-center justify-center mt-[3rem]">
+    <section className="w-full h-full flex flex-wrap items-center justify-center mt-[3rem]">
       <button
-        className="border border-amber-400 font-medium p-[0.5rem] bg-amber-500 hover:brightness-90 rounded-[8px]"
+        className="hidden border border-amber-400 font-medium p-[0.5rem] bg-amber-500 hover:brightness-90 rounded-[8px] lg:flex"
         onClick={previousPage}
       >
         Anterior
@@ -26,7 +26,7 @@ export const PaginationHome = ({ page, setPage }: any) => {
       {pages.map((pageAct) => (
         <button
           key={pageAct}
-          className={`cursor-pointer border p-[0.5rem] ml-[1rem] ${
+          className={`cursor-pointer border p-[0.5rem] ml-[1rem] mt-[1rem] lg:mt-0 ${
             pageAct == page ? "bg-gray-400" : "bg-white"
           }`}
           onClick={() => setActuallyPage(pageAct)}
@@ -34,12 +34,20 @@ export const PaginationHome = ({ page, setPage }: any) => {
           {pageAct}
         </button>
       ))}
-      <button
-        className="border  border-amber-400 font-medium p-[0.5rem] bg-amber-500 ml-[1rem] hover:brightness-90 rounded-[8px]"
-        onClick={nextPage}
-      >
-        Próximo
-      </button>
+      <div className="mt-[1rem] lg:mt-0">
+        <button
+          className="border border-amber-400 font-medium p-[0.5rem] bg-amber-500 hover:brightness-90 rounded-[8px] lg:hidden"
+          onClick={previousPage}
+        >
+          Anterior
+        </button>
+        <button
+          className="border  border-amber-400 font-medium p-[0.5rem] bg-amber-500 ml-[1rem] hover:brightness-90 rounded-[8px]"
+          onClick={nextPage}
+        >
+          Próximo
+        </button>
+      </div>
     </section>
   );
 };
