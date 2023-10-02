@@ -26,7 +26,7 @@ export const Header = () => {
           </figure>
         </div>
         <div className="w-full text-end flex items-center justify-end gap-4">
-          <p className="w-full text-white text-[1rem]">{user.name}</p>
+          <p className="w-full text-white text-[1rem]">{user?.name}</p>
             <LogoutButton>Logout</LogoutButton>
         </div>
       </div>

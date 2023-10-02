@@ -20,22 +20,25 @@ export const UserProvider = ({ children }: iChildren) => {
 
   const router = useRouter();
 
-  useEffect(() => {
+  const loading = () => {
     const token = nookies.get(null).token;
-
     if (token) {
       localApi.defaults.headers.authorization = `Bearer ${token}`;
       retrieveLoggedUser();
       router.push("/home");
     }
-  },[]);
+  };
+
+  useEffect(() => {
+    loading();
+  }, []);
 
   const loginUser = async (userLogin: iUserLogin) => {
     await localApi
       .post("login", userLogin)
       .then((res) => {
         nookies.set(null, "token", res.data.token);
-        retrieveLoggedUser();
+        loading();
         router.push("/home");
         setError("");
       })
@@ -51,7 +54,7 @@ export const UserProvider = ({ children }: iChildren) => {
         setUser(res.data.user);
         const { email, password } = userRegister;
         loginUser({ email, password });
-        retrieveLoggedUser();
+        loading();
       })
       .catch((error) => {
         setError(error.response.data.message);

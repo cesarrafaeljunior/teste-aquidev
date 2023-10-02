@@ -21,8 +21,8 @@ export default function Login() {
         className="text-white mt-8
        font-light"
       >
-          {register ? "Já tem uma conta?" : "Não tem uma conta?"}
-          <button className="ml-2 text-blue-500" onClick={() => setRegister(!register)}>{register ? "Entrar" : "Cadastre-se"}</button>
+          {register ? "Already have an account?" : "Don't have an account?"}
+          <button className="ml-2 text-blue-500" onClick={() => setRegister(!register)}>{register ? "SignIn" : "SignUp"}</button>
       </p>
     </section>
   );

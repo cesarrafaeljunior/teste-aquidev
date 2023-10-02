@@ -5,7 +5,7 @@ import { beerContext } from "@/contexts/beer.context";
 import { iBeer } from "@/interface/beers.interface";
 import { useRouter } from "next/navigation";
 import { useContext, useEffect } from "react";
-import nookies from "nookies";
+import nookies, { destroyCookie } from "nookies";
 
 export const BeerEspecific = ({ id }: any) => {
   const router = useRouter();
@@ -13,6 +13,7 @@ export const BeerEspecific = ({ id }: any) => {
     const verifyToken = () => {
       const token = nookies.get(null).token;
       if (!token) {
+        destroyCookie(null, "token");
         router.push("/");
       }
     };

@@ -32,7 +32,7 @@ export const FormLogin = () => {
       <Input
         Icon={AiOutlineMail}
         name="email"
-        placeholder="Endereço de email"
+        placeholder="Email Address"
         type="email"
         register={register}
         error={errors.email?.message}
@@ -41,13 +41,13 @@ export const FormLogin = () => {
       <Input
         Icon={GiPadlock}
         name="password"
-        placeholder="Sua senha"
+        placeholder="Your Password"
         type="password"
         register={register}
         error={errors.password?.message}
       />
       {error && <p className="errors">{error}</p>}
-      <ButtonForm type="submit">Entrar</ButtonForm>
+      <ButtonForm type="submit">SignIn</ButtonForm>
     </Form>
   );
 };

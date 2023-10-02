@@ -21,7 +21,7 @@ export const PaginationHome = ({ page, setPage }: any) => {
         className="hidden border border-amber-400 font-medium p-[0.5rem] bg-amber-500 hover:brightness-90 rounded-[8px] lg:flex"
         onClick={previousPage}
       >
-        Anterior
+        Prev
       </button>
       {pages.map((pageAct) => (
         <button
@@ -39,13 +39,13 @@ export const PaginationHome = ({ page, setPage }: any) => {
           className="border border-amber-400 font-medium p-[0.5rem] bg-amber-500 hover:brightness-90 rounded-[8px] lg:hidden"
           onClick={previousPage}
         >
-          Anterior
+          Prev
         </button>
         <button
           className="border  border-amber-400 font-medium p-[0.5rem] bg-amber-500 ml-[1rem] hover:brightness-90 rounded-[8px]"
           onClick={nextPage}
         >
-          Próximo
+          Next
         </button>
       </div>
     </section>

@@ -7,7 +7,7 @@ import { Header } from "@/components/Header";
 import Bg_Home from "../../../public/assets/bg/bg_home.jpg";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import nookies from "nookies";
+import nookies, { destroyCookie } from "nookies";
 
 export const Home = () => {
   const router = useRouter();
@@ -16,6 +16,7 @@ export const Home = () => {
     const verifyToken = () => {
       const token = nookies.get(null).token;
       if (!token) {
+        destroyCookie(null, "token");
         router.push("/");
       }
     };

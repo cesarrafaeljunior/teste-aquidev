@@ -32,7 +32,7 @@ export const FormRegister = () => {
       <Input
         Icon={BsFillPersonFill}
         name="name"
-        placeholder="Seu nome"
+        placeholder="Your Name"
         type="text"
         register={register}
         error={errors.name?.message}
@@ -40,7 +40,7 @@ export const FormRegister = () => {
       <Input
         Icon={AiOutlineMail}
         name="email"
-        placeholder="Endereço de email"
+        placeholder="Email Address"
         type="email"
         register={register}
         error={errors.email?.message}
@@ -48,7 +48,7 @@ export const FormRegister = () => {
       <Input
         Icon={GiPadlock}
         name="password"
-        placeholder="Sua senha"
+        placeholder="Your password"
         type="password"
         register={register}
         error={errors.password?.message}
@@ -56,13 +56,13 @@ export const FormRegister = () => {
       <Input
         Icon={GiPadlock}
         name="confirmPassword"
-        placeholder="Confime sua senha"
+        placeholder="Confirm your password"
         type="password"
         register={register}
         error={errors.confirmPassword?.message}
       />
       {error && <p className="errors">{error}</p>}
-      <ButtonForm type="submit">Cadastrar-se</ButtonForm>
+      <ButtonForm type="submit">SignUp</ButtonForm>
     </Form>
   );
 };
