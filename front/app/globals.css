@@ -16,6 +16,17 @@
   }
 }
 
+body{
+  width: 100vw;
+  height: 100vh;
+}
+
+.container{
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .bg_beer {
   position: relative;
   z-index: 2;
@@ -31,7 +42,7 @@
   background-image: url(../public/assets/bg/bg_beer.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center; 
+  background-position: center;
   opacity: 0.4;
   z-index: -1;
 }

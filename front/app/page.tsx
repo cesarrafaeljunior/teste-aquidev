@@ -8,7 +8,7 @@ export default function Login() {
   const [register, setRegister] = useState<boolean>(false);
 
   return (
-    <main className="bg_beer min-w-[100vw] min-h-[100vh] flex flex-col justify-start items-center bg-black relative">
+    <section className="bg_beer min-w-[100vw] min-h-[100vh] flex flex-col justify-start items-center bg-black relative">
       <Image
         src={icon}
         width={200}
@@ -21,11 +21,9 @@ export default function Login() {
         className="text-white mt-8
        font-light"
       >
-        <div>
           {register ? "Já tem uma conta?" : "Não tem uma conta?"}
           <button className="ml-2 text-blue-500" onClick={() => setRegister(!register)}>{register ? "Entrar" : "Cadastre-se"}</button>
-        </div>
       </p>
-    </main>
+    </section>
   );
 }
