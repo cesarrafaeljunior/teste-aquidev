@@ -16,7 +16,7 @@ export const sessionService = async (sessionData: iSession) => {
   const matchPassword = compareSync(sessionData.password, user.password);
 
   if (!matchPassword) {
-    throw new AppError("Password does not match", 403);
+    throw new AppError("User not found, check your email/password", 403);
   
   }
 
