@@ -5,7 +5,7 @@ import {
   iUserLogin,
   iUserRegister,
 } from "@/interface/user.interface";
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { iChildren } from "./beer.context";
 import { localApi } from "@/services/axios";
 import nookies from "nookies";
@@ -14,12 +14,21 @@ import { useRouter } from "next/navigation";
 export const userContext = createContext<iUserContext>({} as iUserContext);
 
 export const UserProvider = ({ children }: iChildren) => {
-  
-  const [error, setError] = useState<string>("")
+  const [error, setError] = useState<string>("");
 
   const [user, setUser] = useState<iUser>({} as iUser);
 
   const router = useRouter();
+
+  useEffect(() => {
+    const token = nookies.get(null).token;
+
+    if (token) {
+      localApi.defaults.headers.authorization = `Bearer ${token}`;
+      retrieveLoggedUser();
+      router.push("/home")
+    }
+  }, []);
 
   const loginUser = async (userLogin: iUserLogin) => {
     await localApi
@@ -27,9 +36,10 @@ export const UserProvider = ({ children }: iChildren) => {
       .then((res) => {
         nookies.set(null, "token", res.data.token);
         router.push("/home");
+        setError("")
       })
       .catch((error) => {
-        setError(error.response.data.message)
+        setError(error.response.data.message);
       });
   };
 
@@ -42,7 +52,18 @@ export const UserProvider = ({ children }: iChildren) => {
         loginUser({ email, password });
       })
       .catch((error) => {
-        setError(error.response.data.message)
+        setError(error.response.data.message);
+      });
+  };
+
+  const retrieveLoggedUser = async () => {
+    await localApi
+      .get("user/login")
+      .then((res) => {
+        setUser(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
 

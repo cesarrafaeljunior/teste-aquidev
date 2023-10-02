@@ -2,9 +2,22 @@
 import { Header } from "@/components/Header";
 import { beerContext } from "@/contexts/beer.context";
 import { iBeer } from "@/interface/beers.interface";
-import { useContext } from "react";
+import { useRouter } from "next/navigation";
+import { useContext, useEffect } from "react";
+import nookies from "nookies";
 
 export const BeerEspecific = ({ id }: any) => {
+  const router = useRouter();
+  useEffect(() => {
+    function verifyToken() {
+      const token = nookies.get(null).token;
+      if (!token) {
+        router.push("/");
+      }
+    }
+    verifyToken();
+  }, []);
+
   const { beers } = useContext(beerContext);
 
   const beer = beers.find((beer: iBeer) => beer.id === Number(id));
@@ -67,7 +80,9 @@ export const BeerEspecific = ({ id }: any) => {
               <p className="ml-[2rem] mt-[1rem]">{beer?.brewers_tips}</p>
             </div>
             <div>
-              <p className="font-bold text-[1.5rem] mt-[2rem] ">Food Pairing:</p>
+              <p className="font-bold text-[1.5rem] mt-[2rem] ">
+                Food Pairing:
+              </p>
               {beer?.food_pairing.map((food) => (
                 <ul key={food} className="flex flex-col mt-[1rem] mb-[2rem] ">
                   <li className="w-full h-full flex gap-[2rem] border  border-[var(--colorPrimary)] p-[1rem] ">

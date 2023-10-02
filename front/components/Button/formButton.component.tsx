@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, HtmlHTMLAttributes } from "react";
+import { ButtonHTMLAttributes } from "react";
 
 export const ButtonForm:React.FC<ButtonHTMLAttributes<HTMLButtonElement>> = ({ type,children,...rest }) => {
   return (
