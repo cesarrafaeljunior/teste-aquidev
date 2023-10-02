@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import { Header } from "@/components/Header";
 import { beerContext } from "@/contexts/beer.context";
@@ -14,7 +15,7 @@ export const BeerEspecific = ({ id }: any) => {
       if (!token) {
         router.push("/");
       }
-    }
+    };
     verifyToken();
   });
 
@@ -23,19 +24,20 @@ export const BeerEspecific = ({ id }: any) => {
   const beer = beers.find((beer: iBeer) => beer.id === Number(id));
 
   return (
-    <>
+    <section>
       <Header />
-      <section className="container w-full h-full">
-        <div className="w-full h-full flex mt-[2rem]">
-          <figure className="w-full h-full flex items-center justify-center">
+      <section className="container w-full h-full pt-[8rem] md:pt-[12rem]">
+        <div className="w-full h-full md:flex items-start justify-center gap-[5rem] md:gap-0 lg:gap-[3rem]">
+          <figure className="h-full flex items-center justify-center md:pl-[2rem]">
             <img
               src={beer?.image_url}
-              alt={beer?.image_url}
-              className="w-[200px] h-[700px] self-center  "
+              alt={beer?.name}
+              className="w-[100px] h-[300px] self-center md:w-[150px] md:h-[700px]"
             />
           </figure>
-          <h2 className="mt-[3rem]">{beer?.abv}%</h2>
-          <div className="flex flex-col mt-[5rem] ml-[4rem]">
+          <h2 className="text-center mt-[3rem] md:mt-[-3rem]">{beer?.abv}%</h2>
+          <div className="flex flex-col mt-[1rem] px-[1rem]">
+            <button className="self-start p-[0.5rem] mb-[1rem] bg-amber-400  font-bold rounded-md hover:brightness-105" onClick={() => router.push("/home")}>Back to home</button>
             <h2 className="text-[3rem]">{beer?.name}</h2>
             <h3 className="font-bold  mt-[1rem] text-[1rem]">
               {beer?.tagline}
@@ -94,6 +96,6 @@ export const BeerEspecific = ({ id }: any) => {
           </div>
         </div>
       </section>
-    </>
+    </section>
   );
 };
