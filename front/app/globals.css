@@ -2,26 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body{
+body {
   width: 100vw;
   height: 100vh;
 }
 
-.container{
+p {
+  font-size: 1rem;
+  color: var(--gray);
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 3rem;
+  color: var(--gray);
+  font-weight: extraBold;
+}
+
+h2 {
+  font-size: 2rem;
+  color: var(--gray);
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: var(--gray);
+  font-weight: medium;
+}
+
+button {
+  cursor: pointer;
+}
+
+.errors{
+  font-size: 1rem;
+  color: rgb(223, 46, 46);
+  font-weight: bold;
+  padding: -1.5rem;
+  margin: -1rem 0 -2rem 0;
+  align-self: start;
+}
+
+.container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -45,4 +72,12 @@ body{
   background-position: center;
   opacity: 0.4;
   z-index: -1;
+}
+
+:root {
+  --colorPrimary: #fde68a;
+  --colorSecondary: #a56038;
+  --gray: 102 102 102;
+  --white: 255 255 255;
+  --black: 0 0 0;
 }
