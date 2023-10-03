@@ -1,5 +1,6 @@
 import prisma from "../../database/connect.database"
 import { iUserResponse } from "../../interfaces/user.interface"
+import { returnUserSchemaWithoutPassword } from "../../schemas/user.schemas"
 
 export const retrieveUserLoggedService = async (userId:number): Promise<iUserResponse | null> => {
 
@@ -9,5 +10,8 @@ export const retrieveUserLoggedService = async (userId:number): Promise<iUserRes
         }
     })
 
-    return userLogged
+    const userResponse:iUserResponse = returnUserSchemaWithoutPassword.parse(userLogged)
+
+
+    return userResponse
 }

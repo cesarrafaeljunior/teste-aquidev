@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+}
+
+img{
+  max-width: none;
+}
+
+p {
+  font-size: 1rem;
+  color: var(--gray);
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 3rem;
+  color: var(--gray);
+  font-weight: extraBold;
+}
+
+h2 {
+  font-size: 2rem;
+  color: var(--gray);
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: var(--gray);
+  font-weight: medium;
+}
+
+button {
+  cursor: pointer;
+}
+
+.errors{
+  font-size: 1rem;
+  color: rgb(223, 46, 46);
+  font-weight: bold;
+  padding: -1.5rem;
+  margin: -1rem 0 -2rem 0;
+  align-self: start;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.bg_beer {
+  position: relative;
+  z-index: 2;
+}
+
+.bg_beer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(../public/assets/bg/bg_beer.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.4;
+  z-index: -1;
+}
+
+:root {
+  --colorPrimary: #fde68a;
+  --colorSecondary: #a56038;
+  --gray: 102 102 102;
+  --white: 255 255 255;
+  --black: 0 0 0;
+}
