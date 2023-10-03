@@ -194,7 +194,7 @@ OBS: Você precisa ter o docker instalado e rodando na sua máquina!
 }
 ```
 
-`POST /client - FORMATO DE RESPOSTA- Status Code - 201`
+`POST /user - FORMATO DE RESPOSTA- Status Code - 201`
 <P>Exemplo de resposta</p>
 
 ```json
@@ -208,7 +208,7 @@ OBS: Você precisa ter o docker instalado e rodando na sua máquina!
 
 #### Buscar todos os usuários cadastrados
 
-`GET /client - FORMATO DE RESPOSTA- Status Code - 200`
+`GET /user - FORMATO DE RESPOSTA- Status Code - 200`
 <P>Exemplo de resposta</p>
 
 ```json
@@ -246,6 +246,22 @@ OBS: Você precisa ter o docker instalado e rodando na sua máquina!
 <hr>
 
 ## Rotas que precisam de autenticação:
+
+
+### User
+#### Buscar usuário logado
+`GET /user - FORMATO DE RESPOSTA- Status Code - 200`
+<P>Exemplo de resposta</p>
+
+```json
+{
+	"name": "teste",
+	"email":"teste@gmail.com",
+	"id": 1,
+	"createdAt": "2023-03-24T16:22:47.649Z"
+}
+```
+
 
 ### Produtos
 
