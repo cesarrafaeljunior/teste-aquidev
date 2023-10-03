@@ -206,6 +206,8 @@ OBS: Você precisa ter o docker instalado e rodando na sua máquina!
 }
 ```
 
+<hr>
+
 #### Buscar todos os usuários cadastrados
 
 `GET /user - FORMATO DE RESPOSTA- Status Code - 200`
@@ -219,6 +221,8 @@ OBS: Você precisa ter o docker instalado e rodando na sua máquina!
 	"createdAt": "2023-03-24T16:22:47.649Z"
 }]
 ```
+
+<hr>
 
 #### Login de usuário
 
@@ -262,6 +266,8 @@ OBS: Você precisa ter o docker instalado e rodando na sua máquina!
 }
 ```
 
+<hr>
+
 
 ### Produtos
 
@@ -303,6 +309,8 @@ OBS: Você precisa ter o docker instalado e rodando na sua máquina!
 }
 ```
 
+<hr>
+
 ### Buscar todos os produtos:
 
 `GET /product - FORMATO DE RESPOSTA- Status Code - 200`
@@ -324,6 +332,8 @@ OBS: Você precisa ter o docker instalado e rodando na sua máquina!
 }]
 ```
 
+<hr>
+
 ### Buscar um produto pelo id:
 
 `GET /product/1 - FORMATO DE RESPOSTA- Status Code - 200`
@@ -344,6 +354,8 @@ OBS: Você precisa ter o docker instalado e rodando na sua máquina!
 	"updatedAt": "2023-10-02T23:49:53.319Z"
 }]
 ```
+<hr>
+
 #### Editar informações de um produto:
 
 `PATCH /product/id - FORMATO DE REQUISIÇÃO`
@@ -377,11 +389,14 @@ OBS: Você precisa ter o docker instalado e rodando na sua máquina!
 }
 ```
 
+<hr>
+
 #### Deletar um produto:
 
 `DELETE /product/id - FORMATO DE RESPOSTA- Status Code - 204`
 ```json
 no body
 ```
+<hr>
 
 
