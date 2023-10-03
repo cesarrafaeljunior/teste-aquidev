@@ -130,7 +130,6 @@ OBS: Você precisa ter o docker instalado e rodando na sua máquina!
       Server started on port 3001 //Ou a porta que em que escolheu executar
   ```
 - Utilize o <a href="https://insomnia.rest/">Imsonia</a> ou qualquer outro software de chamadas HTTP para testar as rotas da API.
-- Confira a documentação da api no arquivo "API.README.MD".
 
 <hr>
 
