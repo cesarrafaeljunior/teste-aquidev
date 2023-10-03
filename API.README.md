@@ -19,7 +19,7 @@
 }
 ```
 
-`POST /client - FORMATO DE RESPOSTA- Status Code - 201`
+`POST /user - FORMATO DE RESPOSTA- Status Code - 201`
 <P>Exemplo de resposta</p>
 
 ```json
@@ -33,7 +33,7 @@
 
 #### Buscar todos os usuários cadastrados
 
-`GET /client - FORMATO DE RESPOSTA- Status Code - 200`
+`GET /user - FORMATO DE RESPOSTA- Status Code - 200`
 <P>Exemplo de resposta</p>
 
 ```json
