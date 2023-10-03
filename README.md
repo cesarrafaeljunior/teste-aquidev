@@ -356,7 +356,7 @@ OBS: Você precisa ter o docker instalado e rodando na sua máquina!
 ```
 <hr>
 
-#### Editar informações de um produto:
+### Editar informações de um produto:
 
 `PATCH /product/id - FORMATO DE REQUISIÇÃO`
 <P>Exemplo de requisição</p>
@@ -391,7 +391,7 @@ OBS: Você precisa ter o docker instalado e rodando na sua máquina!
 
 <hr>
 
-#### Deletar um produto:
+### Deletar um produto:
 
 `DELETE /product/id - FORMATO DE RESPOSTA- Status Code - 204`
 ```json
