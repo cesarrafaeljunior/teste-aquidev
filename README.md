@@ -1,43 +1,37 @@
-O teste consiste em criar uma aplicação que expõe uma API REST de um CRUD de produtos e autenticação, e uma aplicação web contendo uma interface para login e acesso a dados de uma API externa. 
+<h1 align="center"> Beers </h1>
 
-Depois de logado, o usuário da aplicação web deve poder acessar os dados da [Punk API v2](https://punkapi.com/). 
+<hr>
 
-NOTA: O front-end e back-end deve ser realizado apenas por desenvolvedores Full Stack. Caso contrário, realize o teste de acordo com sua área de atuação.
+### Tópicos
 
-NOTA 2: Não esqueça de fazer o fork do repositório.
+- [Instalação](#instalação)
+- [Ferramentas utilizadas](#ferramentas-utilizadas)
+- [Api Utilizada](#api-utilizada)
 
-## Back-end 💻
-- Todos os endpoints de consulta de dados devem ter autenticação por webtoken ou similar.
-- Deve existir validação dos dados recebidos pela API.
-- O CRUD não precisa de interface, apenas o login e o cadastro
+## Instalação
 
-## Front-end 🎨
-O front-end deve atender aos seguintes requisitos:
-- Interface de login e cadastro com feedbacks para usuário ou senha incorreta.
-- Listagem dos dados da Punk API v2.
-- Responsividade.
+- [Back-End](#instalação-do-back-end)
+- [Front-End](#instalação-do-front-end)
 
-## Extras 🌟
-O desenvolvimento dessas features é opcional.
+### Instalação do Back End
 
-- Filtragem dos dados da Punk API v2 por diferentes critérios, como nome, estilo de cerveja, teor alcoólico, etc.
-- Ordenação dos dados da Punk API v2 por diferentes campos, como nome, teor alcoólico, etc.
-- Comentários e avaliações: permitir que os usuários deixem comentários e avaliações para as cervejas.
-- Dockerfile com todas as dependências.
+- [Utilizando Docker](#instalação-do-back-end)
+- [Sem o Docker](#instalação-do-front-end)
 
-## Critérios de avaliação ✅
-- Funcionamento do projeto.
-- Estrutura do código.
-- Uso de boas práticas.
-- Cumprimento dos requisitos mínimos.
+### Utilizando o docker
 
-## Entrega 📦
+- Você precisa ter o docker instalado e rodando na sua máquina!
 
-- Um repositório git (fork deste).
-- Um README do projeto com o passo-a-passo para executar a aplicação.
+#### Passo 1:
+    
+    - Abra o diretório clonado e utilizando um terminal navegue até a pasta back
+    - Antes de rodar o projeto é necessário fazer algumas configurações de variáveis de ambiente e conexão, para isso crie na raiz do projeto um arquivo chamado ```.env``` 
+    - Rode o comando ```docker compose up --build``` para buildar a imagem do projeto e criar os serviços necessários para rodar o projeto.
+    - Utilize o <a href="https://insomnia.rest/">Imsonia</a> ou qualquer outro software de chamadas HTTP para testar as rotas da API.
 
-## Observações 📝
 
-1. Pode ser utilizado qualquer framework front-end, preprocessadores de css, task runners, bundlers, etc, de sua preferência, mas nenhum deles é de uso obrigatório.
+- Clonar o repositório
 
-2. Não se deve fazer o commit de pastas como node_modules, o projeto deve instalar suas dependências a partir do package.json.
+  ```
+  git clone git@github.com:cesarrafaeljunior/teste-aquidev.git
+  ```
